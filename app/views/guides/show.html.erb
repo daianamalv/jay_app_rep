@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @guide.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @guide.description %>
+</p>
+
+<p>
+  <strong>Avatar link:</strong>
+  <%= @guide.avatar_link %>
+</p>
+
+<p>
+  <strong>Contact number:</strong>
+  <%= @guide.contact_number %>
+</p>
+
+<p>
+  <strong>Маршруты:</strong>
+</p>
+<% @guide.tours.each do |tour| %>
+<p>
+    <td><%= link_to tour.title, tour_path(tour) %></td>
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_guide_path(@guide) %> |
+<%= link_to 'Back', guides_path %>

@@ -1,0 +1,47 @@
+<%= form_with(model: tour, local: true) do |form| %>
+  <% if tour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
+
+      <ul>
+        <% tour.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avatar_link %>
+    <%= form.text_field :avatar_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city_id, 'City' %>
+    <%= form.collection_select :city_id, City.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :guide_id, 'Guide' %>
+    <%= form.collection_select :guide_id, Guide.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @tour.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tour.description %>
+</p>
+
+<p>
+  <strong>Avatar link:</strong>
+  <%= @tour.avatar_link %>
+</p>
+
+<div>
+  <%= image_tag(@tour.image, style:'width:200px; height:200px') if @tour.image.attached? %>
+</div>
+
+<p>
+  <strong>City:</strong>
+  <%= link_to @tour.city.name, city_path(@tour.city) %>
+</p>
+
+<p>
+  <strong>Guide:</strong>
+  <%= link_to @tour.guide.name, guide_path(@tour.guide) %>
+</p>
+
+<% @tour.places.each do |place| %>
+<p>
+    <td><%= link_to place.title, place_path %></td>
+</p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_tour_path(@tour) %> |
+<%= link_to 'Back', tours_path %>

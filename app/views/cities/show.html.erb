@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @city.name %>
+</p>
+
+<p>
+  <strong>Маршруты:</strong>
+</p>
+<% @city.tours.each do |tour| %>
+<p>
+    <td><%= link_to tour.title, tour_path(tour) %></td>
+</p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>
