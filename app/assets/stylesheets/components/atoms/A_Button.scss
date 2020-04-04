@@ -1,0 +1,26 @@
+.A_Button {
+  height: 37px;
+  line-height: 37px;
+  padding: 0 20px;
+  // background: #FFDF4E;
+  color: #4D4D4D;
+  text-align: center;
+  display: inline-block;
+  min-width: 100px;
+  text-decoration: none;
+  border-radius: 5px;
+
+  // --------------------
+
+  border: 1px solid #4D4D4D;
+  border-radius: 4px;
+  min-width: 80px;
+  display: inline-block;
+  padding: 0 20px;
+
+  &:hover{
+    border: 1px solid #FFDF4E;
+    background: #FFDF4E;
+    color: #4D4D4D;
+  }
+}

@@ -1,0 +1,16 @@
+.A_Link {
+
+  color: #FF4E4E;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+
+
+  // --------------------
+  min-width: 80px;
+  display: inline-block;
+
+  &:hover{
+    color: #FF8F8F;
+  }
+}

@@ -1,23 +1,15 @@
+<div class="P_Tour">
+
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<div class="A_H1">
   <%= @guide.name %>
-</p>
+</div>
 
 <p>
-  <strong>Description:</strong>
+  <strong>О себе:</strong>
   <%= @guide.description %>
-</p>
-
-<p>
-  <strong>Avatar link:</strong>
-  <%= @guide.avatar_link %>
-</p>
-
-<p>
-  <strong>Contact number:</strong>
-  <%= @guide.contact_number %>
 </p>
 
 <p>
@@ -29,5 +21,7 @@
 </p>
 <% end %>
 
-<%= link_to 'Edit', edit_guide_path(@guide) %> |
-<%= link_to 'Back', guides_path %>
+<%= link_to 'Редактировать', edit_guide_path(@guide) %> |
+<%= link_to 'Назад', guides_path %>
+
+</div>

@@ -10,6 +10,37 @@
   </head>
 
   <body>
+
+    <menu class="O_Menubar">
+      <div class="M_ToMain">
+
+
+      <%= link_to tours_path do %>
+  <div class="Q_Logo"></div>
+<% end %>
+<%= link_to 'На главную', tours_path %>
+</div>
+
+<%= link_to 'Все города', cities_path %>
+
+        <%= link_to 'Все места', places_path %>
+        <%= link_to 'Закладки', favourites_path %>
+        <%= link_to 'Создать маршрут', new_tour_path, class: "A_Link"%>
+
+        <% if guide_signed_in? %>
+          <%= link_to('Выйти', destroy_guide_session_path, method: :delete) %>
+
+        <% else %>
+
+         <%= link_to('Войти', new_guide_session_path) %>
+
+        <% end %>
+
+    </menu>
+
+        <%= yield :breadcrumbs %>
+
+
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,21 @@
+.P_Tour {
+  margin-top: 135px;
+  margin-left: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Manrope-SemiBold", sans-serif;
+
+  .A_H2, .A_H1 {
+    margin-top: 30px;
+  }
+
+  .field {
+    margin-bottom: 30px;
+  }
+
+  a {
+    font-family: "Manrope-SemiBold", sans-serif;
+    color: #FF4E4E;
+  }
+}

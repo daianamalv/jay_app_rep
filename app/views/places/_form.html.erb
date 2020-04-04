@@ -1,3 +1,4 @@
+<div class="P_Tour">
 <%= form_with(model: place, local: true) do |form| %>
   <% if place.errors.any? %>
     <div id="error_explanation">
@@ -11,18 +12,28 @@
     </div>
   <% end %>
 
+  <div class="A_H1">
+    <h1>Создайте место</h1>
+  </div>
+
+
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title, 'Название места' %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :image, 'Выберите фотографию' %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, 'Описание' %>
     <%= form.text_area :description %>
   </div>
 
   <div class="field">
-    <%= form.label :tour_id, 'Tour' %>
+    <%= form.label :tour_id, 'Маршрут' %>
     <%= form.collection_select :tour_id, Tour.all, :id, :title, prompt: true %>
   </div>
 
@@ -32,7 +43,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :guide_id, 'Guide' %>
+    <%= form.label :guide_id, 'Гид' %>
     <%= form.collection_select :guide_id, Guide.all, :id, :name, prompt: true %>
   </div>
 
@@ -40,3 +51,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>

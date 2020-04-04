@@ -20,13 +20,19 @@ places: ['Львиный мост', 'Экономический универси
 @guides = [
 {
 name: 'Иван',
-description: 'Знаю все о Петроградском районе'
+description: 'Знаю все о Петроградском районе',
+email: 'guide1@test.com',
+password: 'testtest'
 }, {
 name: 'Антон',
-description: 'Рассказываю о лучшей корейской кулинарии'
+description: 'Рассказываю о лучшей корейской кулинарии',
+email: 'guide2@test.com',
+password: 'testtest'
 }, {
 name: 'Саша',
-description: 'Люблю котиков Озерков'
+description: 'Люблю котиков Озерков',
+email: 'guide3@test.com',
+password: 'testtest'
 }
 ]
 

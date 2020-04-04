@@ -1,40 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+
+
+  <div class="P_Tour">
+
+    <div>
+      <%= image_tag(@tour.image, style: 'width:403px; height:237px;') if @tour.image.attached? %>
+    </div>
+
+<div class="A_H1">
+
+
   <%= @tour.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @tour.description %>
-</p>
-
-<p>
-  <strong>Avatar link:</strong>
-  <%= @tour.avatar_link %>
-</p>
-
-<div>
-  <%= image_tag(@tour.image, style:'width:200px; height:200px') if @tour.image.attached? %>
 </div>
 
-<p>
-  <strong>City:</strong>
+
+
+<div class="A_P1">
+  <%= @tour.description %>
+</div>
+
+<!-- <p>
+  <strong>Avatar:</strong>
+  <%# <%= @tour.avatar_link %> %>
+</p> -->
+
+<div class="A_P1">
+  <strong>Город:</strong>
   <%= link_to @tour.city.name, city_path(@tour.city) %>
-</p>
+</div>
 
-<p>
-  <strong>Guide:</strong>
+<div class="A_P1">
+  <strong>Гид:</strong>
   <%= link_to @tour.guide.name, guide_path(@tour.guide) %>
-</p>
-
+</div>
+<div class="A_H3">
+<h3>Места этого маршрута:</h3>
+</div>
 <% @tour.places.each do |place| %>
-<p>
+<div class="A_P1">
+
     <td><%= link_to place.title, place_path %></td>
-</p>
+</div>
 <% end %>
 
+<%= link_to 'Нравится', tours_add_to_favourite_path(tour_id: @tour.id), method: :post %> |
 
-<%= link_to 'Edit', edit_tour_path(@tour) %> |
-<%= link_to 'Back', tours_path %>
+
+<%= link_to 'Редактировать', edit_tour_path(@tour) %> |
+<td><%= link_to 'Удалить', @tour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<%= link_to 'Назад', tours_path %>
+
+
+  </div>

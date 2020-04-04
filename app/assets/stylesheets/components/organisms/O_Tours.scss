@@ -1,0 +1,17 @@
+.O_Tours {
+  width: 1300px;
+  // margin: 0 auto;
+  margin-top: 42px;
+  display: flex;
+flex-direction: row;
+// justify-content: space-between;
+ // grid-template-columns: 1fr 1fr 1fr 1fr;
+  // grid-template-rows: auto;
+
+  .M_TourCard {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+
+}

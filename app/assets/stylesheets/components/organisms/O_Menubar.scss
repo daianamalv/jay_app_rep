@@ -1,0 +1,52 @@
+.O_Menubar {
+  font-family: "Manrope-SemiBold", sans-serif;
+  box-sizing: border-box;
+  padding: 13px 65px;
+  // width: 100vw;
+  background: white;
+  color: #0B004C;
+  // position: fixed;
+
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  height: 64px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+
+  .A_Link {
+    color: #FF4E4E;
+    &:hover{
+      color: #FF8F8F;
+    }
+
+  }
+
+  a {
+    // font-family: "Circe-Regular";
+    line-height: 37px;
+    color: #0B004C;
+    text-decoration: none;
+
+    &:hover{
+          color: #5C4FAB;
+    }
+  }
+  //
+  // .Q_AvatarIcon {
+  //   margin-top: 7px;
+  //   margin-left: 25px;
+  // }
+  //
+  //
+  // .M_ServiceCard {
+  //   margin-left: 15px;
+  // }
+
+}

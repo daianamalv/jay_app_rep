@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
+<div class="P_Tour">
+  <div class="A_H2">
+     <%= @place.title %>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @place.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
+<div>
+  <%= image_tag(@place.image, style:'width:200px; height:200px') if @place.image.attached? %>
+</div>
+
+<div class="A_P1">
+
+
   <%= @place.description %>
-</p>
+</div>
 
 <p>
-  <strong>Point:</strong>
-  <%= @place.point_id %>
-</p>
-
-<p>
-  <strong>Tour:</strong>
+  <strong>Маршрут:</strong>
   <%= link_to @place.tour.title, tour_path(@place.tour) %>
 </p>
 
-
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+<td><%= link_to 'Редактировать', edit_place_path(@place) %> |</td>
+<td><%= link_to 'Удалить', @place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</div>

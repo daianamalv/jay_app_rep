@@ -28,7 +28,7 @@ class ToursController < ApplicationController
 
     respond_to do |format|
       if @tour.save
-        format.html { redirect_to new_place_path(tour.place), notice: 'Tour was successfully created.' }
+        format.html { redirect_to new_place_path(@tour), notice: 'Tour was successfully created.' }
         format.json { render :show, status: :created, location: @tour }
       else
         format.html { render :new }
@@ -49,6 +49,11 @@ class ToursController < ApplicationController
         format.json { render json: @tour.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def add_to_favourite
+    Favourite.create(guide_id: 1, tour_id: params[:tour_id])
+    redirect_to tour_path(params[:tour_id]), notice: 'Added to favourites'
   end
 
   # DELETE /tours/1

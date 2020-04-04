@@ -1,3 +1,5 @@
+<div class="P_Tour">
+
 <%= form_with(model: city, local: true) do |form| %>
   <% if city.errors.any? %>
     <div id="error_explanation">
@@ -13,10 +15,11 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.number_field :name %>
+    <%= form.text_field :name %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>
