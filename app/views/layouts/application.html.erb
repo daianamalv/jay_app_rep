@@ -27,12 +27,12 @@
         <%= link_to 'Закладки', favourites_path %>
         <%= link_to 'Создать маршрут', new_tour_path, class: "A_Link"%>
 
-        <% if guide_signed_in? %>
-          <%= link_to('Выйти', destroy_guide_session_path, method: :delete) %>
+        <% if user_signed_in? %>
+          <%= link_to('Выйти', destroy_user_session_path, method: :delete) %>
 
         <% else %>
 
-         <%= link_to('Войти', new_guide_session_path) %>
+         <%= link_to('Войти', new_user_session_path) %>
 
         <% end %>
 

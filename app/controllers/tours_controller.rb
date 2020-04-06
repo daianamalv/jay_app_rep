@@ -52,7 +52,7 @@ class ToursController < ApplicationController
   end
 
   def add_to_favourite
-    Favourite.create(guide_id: 1, tour_id: params[:tour_id])
+    Favourite.create(user_id: 1, tour_id: params[:tour_id])
     redirect_to tour_path(params[:tour_id]), notice: 'Added to favourites'
   end
 
@@ -74,6 +74,6 @@ class ToursController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tour_params
-      params.require(:tour).permit(:title, :description, :avatar_link, :city_id, :guide_id, :image)
+      params.require(:tour).permit(:title, :description, :avatar_link, :city_id, :user_id, :image)
     end
 end

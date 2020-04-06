@@ -15,7 +15,7 @@ class PlacesTest < ApplicationSystemTestCase
     click_on "New Place"
 
     fill_in "Description", with: @place.description
-    fill_in "Guide", with: @place.guide_id
+    fill_in "User", with: @place.user_id
     fill_in "Point", with: @place.point_id
     fill_in "Title", with: @place.title
     fill_in "Tour", with: @place.tour_id
@@ -30,7 +30,7 @@ class PlacesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Description", with: @place.description
-    fill_in "Guide", with: @place.guide_id
+    fill_in "User", with: @place.user_id
     fill_in "Point", with: @place.point_id
     fill_in "Title", with: @place.title
     fill_in "Tour", with: @place.tour_id

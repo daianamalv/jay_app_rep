@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class GuidesControllerTest < ActionDispatch::IntegrationTest
+class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @guide = guides(:one)
+    @user = users(:one)
   end
 
   test "should get index" do
-    get guides_url
+    get users_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_guide_url
+    get new_user_url
     assert_response :success
   end
 
-  test "should create guide" do
-    assert_difference('Guide.count') do
-      post guides_url, params: { guide: { avatar_link: @guide.avatar_link, description: @guide.description, name: @guide.name } }
+  test "should create user" do
+    assert_difference('User.count') do
+      post users_url, params: { user: { avatar_link: @user.avatar_link, description: @user.description, name: @user.name } }
     end
 
-    assert_redirected_to guide_url(Guide.last)
+    assert_redirected_to user_url(User.last)
   end
 
-  test "should show guide" do
-    get guide_url(@guide)
+  test "should show user" do
+    get user_url(@user)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_guide_url(@guide)
+    get edit_user_url(@user)
     assert_response :success
   end
 
-  test "should update guide" do
-    patch guide_url(@guide), params: { guide: { avatar_link: @guide.avatar_link, description: @guide.description, name: @guide.name } }
-    assert_redirected_to guide_url(@guide)
+  test "should update user" do
+    patch user_url(@user), params: { user: { avatar_link: @user.avatar_link, description: @user.description, name: @user.name } }
+    assert_redirected_to user_url(@user)
   end
 
-  test "should destroy guide" do
-    assert_difference('Guide.count', -1) do
-      delete guide_url(@guide)
+  test "should destroy user" do
+    assert_difference('User.count', -1) do
+      delete user_url(@user)
     end
 
-    assert_redirected_to guides_url
+    assert_redirected_to users_url
   end
 end

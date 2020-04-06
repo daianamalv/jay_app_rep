@@ -17,21 +17,21 @@ places: ['Львиный мост', 'Экономический универси
 }
 ]
 
-@guides = [
+@users = [
 {
 name: 'Иван',
 description: 'Знаю все о Петроградском районе',
-email: 'guide1@test.com',
+email: 'user1@test.com',
 password: 'testtest'
 }, {
 name: 'Антон',
 description: 'Рассказываю о лучшей корейской кулинарии',
-email: 'guide2@test.com',
+email: 'user2@test.com',
 password: 'testtest'
 }, {
 name: 'Саша',
 description: 'Люблю котиков Озерков',
-email: 'guide3@test.com',
+email: 'user3@test.com',
 password: 'testtest'
 }
 ]
@@ -40,7 +40,7 @@ password: 'testtest'
 
 def seed
  reset_db
- create_guides(@guides)
+ create_users(@users)
  create_cities(@cities)
  create_tours(@tours)
 
@@ -62,9 +62,15 @@ def create_city(city)
   puts "City with name #{c.name} just created"
 end
 
-def create_guides(guides)
-  guides.each do |guide|
-   Guide.create!(guide)
+def create_users(users)
+  users.each do |user|
+   User.create!(
+     name:                  user[:name],
+     description:           user[:description],
+     email:                 user[:email],
+     password:              user[:password],
+     password_confirmation: user[:password]
+   )
   end
 end
 
@@ -75,7 +81,7 @@ end
 def create_tour(tour)
   c = Tour.create!(title: tour[:title])
   c.city_id = City.all.sample.id
-  c.guide_id = Guide.all.sample.id
+  c.user_id = User.all.sample.id
   puts "Tour with title #{c.title} created"
 
   create_tour_places(c, tour[:places])

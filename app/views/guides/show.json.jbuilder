@@ -1,1 +1,1 @@
-json.partial! "guides/guide", guide: @guide
+json.partial! "users/user", user: @user

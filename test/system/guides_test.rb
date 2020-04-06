@@ -1,47 +1,47 @@
 require "application_system_test_case"
 
-class GuidesTest < ApplicationSystemTestCase
+class UsersTest < ApplicationSystemTestCase
   setup do
-    @guide = guides(:one)
+    @user = users(:one)
   end
 
   test "visiting the index" do
-    visit guides_url
-    assert_selector "h1", text: "Guides"
+    visit users_url
+    assert_selector "h1", text: "Users"
   end
 
-  test "creating a Guide" do
-    visit guides_url
-    click_on "New Guide"
+  test "creating a User" do
+    visit users_url
+    click_on "New User"
 
-    fill_in "Avatar link", with: @guide.avatar_link
-    fill_in "Description", with: @guide.description
-    fill_in "Name", with: @guide.name
-    click_on "Create Guide"
+    fill_in "Avatar link", with: @user.avatar_link
+    fill_in "Description", with: @user.description
+    fill_in "Name", with: @user.name
+    click_on "Create User"
 
-    assert_text "Guide was successfully created"
+    assert_text "User was successfully created"
     click_on "Back"
   end
 
-  test "updating a Guide" do
-    visit guides_url
+  test "updating a User" do
+    visit users_url
     click_on "Edit", match: :first
 
-    fill_in "Avatar link", with: @guide.avatar_link
-    fill_in "Description", with: @guide.description
-    fill_in "Name", with: @guide.name
-    click_on "Update Guide"
+    fill_in "Avatar link", with: @user.avatar_link
+    fill_in "Description", with: @user.description
+    fill_in "Name", with: @user.name
+    click_on "Update User"
 
-    assert_text "Guide was successfully updated"
+    assert_text "User was successfully updated"
     click_on "Back"
   end
 
-  test "destroying a Guide" do
-    visit guides_url
+  test "destroying a User" do
+    visit users_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
 
-    assert_text "Guide was successfully destroyed"
+    assert_text "User was successfully destroyed"
   end
 end

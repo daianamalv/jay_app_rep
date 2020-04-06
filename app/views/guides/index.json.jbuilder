@@ -1,1 +1,1 @@
-json.array! @guides, partial: "guides/guide", as: :guide
+json.array! @users, partial: "users/user", as: :user

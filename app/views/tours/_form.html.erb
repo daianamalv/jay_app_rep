@@ -37,8 +37,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :guide_id, 'Гид' %>
-    <%= form.collection_select :guide_id, Guide.all, :id, :name, prompt: true %>
+    <%= form.label :user_id, 'Гид' %>
+    <%= form.collection_select :user_id, User.all, :id, :name, prompt: true %>
   </div>
 
   <div class="actions">

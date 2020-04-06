@@ -4,24 +4,24 @@
 <p id="notice"><%= notice %></p>
 
 <div class="A_H1">
-  <%= @guide.name %>
+  <%= @user.name %>
 </div>
 
 <p>
   <strong>О себе:</strong>
-  <%= @guide.description %>
+  <%= @user.description %>
 </p>
 
 <p>
   <strong>Маршруты:</strong>
 </p>
-<% @guide.tours.each do |tour| %>
+<% @user.tours.each do |tour| %>
 <p>
     <td><%= link_to tour.title, tour_path(tour) %></td>
 </p>
 <% end %>
 
-<%= link_to 'Редактировать', edit_guide_path(@guide) %> |
-<%= link_to 'Назад', guides_path %>
+<%= link_to 'Редактировать', edit_user_path(@user) %> |
+<%= link_to 'Назад', users_path %>
 
 </div>

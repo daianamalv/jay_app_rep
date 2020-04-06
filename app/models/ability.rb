@@ -5,9 +5,9 @@ class Ability
 
   def initialize(user)
 
-    can :index, Guide
-    can :show, Guide
-    can :manage, Guide, id: guide.id
+    can :index, User
+    can :show, User
+    can :manage, User, id: user.id
 
 
     # Define abilities for the passed in user here. For example:
