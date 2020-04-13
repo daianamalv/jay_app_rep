@@ -1,14 +1,19 @@
 .M_TourCard {
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
 
 
   .A_H2 {
-    color: #0B004C;
+    color: #000000;
 
   }
 
   .A_P1 {
-    color: #0B004C;
+    color: #000000;
     width: 400px;
 
   }

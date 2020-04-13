@@ -1,5 +1,6 @@
 .O_Menubar {
   font-family: "Manrope-SemiBold", sans-serif;
+  font-size: 14px;
   box-sizing: border-box;
   padding: 13px 65px;
   // width: 100vw;
@@ -10,7 +11,7 @@
   left: 0%;
   right: 0%;
   top: 0%;
-  height: 64px;
+  height: 96px;
 
   background: #FFFFFF;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
@@ -21,17 +22,22 @@
   justify-content: space-between;
 
   .A_Link {
-    color: #FF4E4E;
+    color: #6900AA;
+    font-size: 24px;
     &:hover{
-      color: #FF8F8F;
+      opacity: 70%;
+
     }
+
+
+
 
   }
 
   a {
     // font-family: "Circe-Regular";
-    line-height: 37px;
-    color: #0B004C;
+    line-height: 62px;
+    color: #000000;
     text-decoration: none;
 
     &:hover{

@@ -7,6 +7,9 @@
     <div>
       <%= image_tag(@tour.image, style: 'width:403px; height:237px;') if @tour.image.attached? %>
     </div>
+    <div class="A_P1">
+      <%= link_to @tour.city.name, city_path(@tour.city) %>
+    </div>
 
 <div class="A_H1">
 
@@ -25,10 +28,7 @@
   <%# <%= @tour.avatar_link %> %>
 </p> -->
 
-<div class="A_P1">
-  <strong>Город:</strong>
-  <%= link_to @tour.city.name, city_path(@tour.city) %>
-</div>
+
 
 <div class="A_P1">
   <strong>Гид:</strong>
