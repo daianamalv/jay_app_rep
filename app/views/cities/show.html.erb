@@ -1,20 +1,71 @@
+<% if @city.cover.present? %>
+  <p>
+    <%= image_tag @city.cover.horizontal.url %>
+  </p>
+<% end %>
+
 <div class="P_Tour">
 
 <p id="notice"><%= notice %></p>
+
+
 
 <div class="A_H1">
 
   <%= @city.name %>
 </div>
 
-<p>
-  <strong>Маршруты:</strong>
-</p>
-<% @city.tours.each do |tour| %>
-<p>
-    <td><%= link_to tour.title, tour_path(tour) %></td>
-</p>
-<% end %>
+
+<div class="O_Tours">
+
+  <% @city.tours.each do |tour| %>
+
+    <div class="Please">
+
+      <%= link_to tour do%>
+        <div class="M_TourCard">
+
+          <% if tour.cover.present? %>
+            <p>
+              <%= image_tag tour.cover.card.url%>
+            </p>
+          <% end %>
+
+          <div class="">
+            <h2 class="A_H2"><%= tour.title %></h2>
+          </div>
+
+          <div class="">
+            <h2 class="A_P1"><%= tour.description %></h2>
+          </div>
+
+          <div class="">
+
+            <%# favourite_link(tour) %>
+            <%
+              link_text = 'Нравится'
+              link_class = 'A_P1'
+            %>
+
+            <% if tour.favourites.where(guide_id: current_guide.id).any? %>
+              <%
+                link_text = 'Не нравится'
+                link_class = 'A_P1'
+              %>
+            <% end %>
+
+            <%= link_to link_text, tours_add_to_favourite_path(tour_id: tour.id), method: :post, class: link_class %>
+
+
+          </div>
+        </div>
+      </div>
+  <% end %>
+  <% end %>
+  </div>
+
+<%= link_to 'Редактировать', edit_city_path(@city) %> |
+
 
 
 

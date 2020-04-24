@@ -1,28 +1,52 @@
 <p id="notice"><%= notice %></p>
-<div class="P_Tour">
-  <div class="A_H1">
 
+<div class="P_MainTours">
 
-Мои закладки
-  </div>
+  <th colspan="3"></th>
 
-<table>
-  <thead>
-    <tr>
-      <!-- <th>User</th> -->
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1 class="A_H1">Сохраненные</h1>
 
-  <tbody>
-    <% @favourites.each do |favourite| %>
-      <tr>
-        <td><%= link_to favourite.tour.title, "tours/#{favourite.tour.id}"  %></td>
-      </tr>
+  <div class="O_Tours">
+
+    <% current_guide.favourite_tours.each do |tour| %>
+
+      <div class="Please">
+
+        <%= link_to tour do%>
+          <div class="M_TourCard">
+
+            <% if tour.cover.present? %>
+              <p>
+                <%= image_tag tour.cover.card.url%>
+              </p>
+            <% end %>
+
+            <div class="">
+              <h2 class="A_H2"><%= tour.title %></h2>
+            </div>
+
+            <div class="">
+              <h2 class="A_P1"><%= tour.description %></h2>
+            </div>
+
+            <div class="">
+
+              <% if tour.favourites.where(guide_id: current_guide.id).any? %>
+                <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+                  <div class="Q_SaveOn"></div>
+                <% end %>
+
+              <% else %>
+                <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+                  <div class="Q_SaveOff"></div>
+                <% end %>
+              <% end %>
+
+            </div>
+
+          </div>
+        </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-</div>
+    <% end %>
+    </div>
+  </div>

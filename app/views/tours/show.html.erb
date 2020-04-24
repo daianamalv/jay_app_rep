@@ -1,55 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-
-
-  <div class="P_Tour">
-
-    <div>
-      <%= image_tag(@tour.image, style: 'width:403px; height:237px;') if @tour.image.attached? %>
-    </div>
-    <div class="A_P1">
-      <%= link_to @tour.city.name, city_path(@tour.city) %>
-    </div>
-
-<div class="A_H1">
-
-
-  <%= @tour.title %>
-</div>
-
-
-
-<div class="A_P1">
-  <%= @tour.description %>
-</div>
-
-<!-- <p>
-  <strong>Avatar:</strong>
-  <%# <%= @tour.avatar_link %> %>
-</p> -->
-
-
-
-<div class="A_P1">
-  <strong>Гид:</strong>
-  <%= link_to @tour.guide.name, guide_path(@tour.guide) %>
-</div>
-<div class="A_H3">
-<h3>Места этого маршрута:</h3>
-</div>
-<% @tour.places.each do |place| %>
-<div class="A_P1">
-
-    <td><%= link_to place.title, place_path %></td>
-</div>
+<% if @tour.cover.present? %>
+  <p>
+    <%= image_tag @tour.cover.horizontal.url %>
+  </p>
 <% end %>
 
-<%= link_to 'Нравится', tours_add_to_favourite_path(tour_id: @tour.id), method: :post %> |
+<div class="P_Tour">
 
+  <div class="A_P1">
+    <%= link_to @tour.city.name, city_path(@tour.city) %>
+  </div>
 
-<%= link_to 'Редактировать', edit_tour_path(@tour) %> |
-<td><%= link_to 'Удалить', @tour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<%= link_to 'Назад', tours_path %>
+  <div class="A_H1">
+    <%= @tour.title %>
+  </div>
+
+  <%= link_to 'Нравится', tours_add_to_favourite_path(tour_id: @tour.id), method: :post %>
+
+  <div class="A_P1">
+    <%= @tour.description %>
+  </div>
+
+  <div class="A_P1">
+    <strong>Гид:</strong>
+    <%= link_to @tour.guide.name, guide_path(@tour.guide) %>
+  </div>
+
+  <div class="A_H3">
+    <h3>Места этого маршрута:</h3>
+  </div>
+
+  <% @tour.places.each do |place| %>
+    <div class="A_P1">
+        <td><%= link_to place.title, tour_place_path(@tour, place) %></td>
+    </div>
+  <% end %>
+
+  <%= link_to 'Редактировать', edit_tour_path(@tour) %> |
+  <%= link_to 'Удалить', @tour, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Назад', tours_path %>
 
 
   </div>

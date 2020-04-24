@@ -1,32 +1,31 @@
-<div class="P_Tour">
-
-
 <p id="notice"><%= notice %></p>
-<div class="A_H1">
 
-<h1>Самые популярные города</h1>
+  <div class="P_MainTours">
 
-</div>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <h1 class="A_H1">Топ городов</h1>
 
-  <tbody>
-    <% @cities.each do |city| %>
-      <tr>
-        <td><%= city.name %></td>
-        <td><%= link_to 'Смотреть маршруты', city %></td>
+    <th colspan="3"></th>
 
-      </tr>
+      <div class="A_CityList">
+        <% @cities.each do |city| %>
+          <div class="Please">
+
+           <div class="M_TourCard">
+
+               <%= link_to city do %>
+
+            <% if city.cover.present? %>
+              <p>
+                <%= image_tag city.cover.card.url%>
+              </p>
+            <% end %>
+
+            <div class="">
+              <h2 class="A_H2"><%= city.name %></h2>
+            </div>
+            <% end %>
+          </div>
+        </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
-
+  </div>
 </div>

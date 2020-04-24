@@ -1,0 +1,26 @@
+<div class="Please">
+<%= link_to tour do%>
+
+<div class="M_TourCard">
+  <% if tour.cover.present? %>
+  <p>
+    <%= image_tag tour.cover.card.url%>
+  </p>
+  <% end %>
+
+  <div class="">
+    <h2 class="A_H2"><%= tour.title %></h2>
+  </div>
+  <div class="">
+    <h2 class="A_P1"><%= tour.description %></h2>
+  </div>
+  <div class="">
+    <td><%= link_to 'Нравится', tours_add_to_favourite_path(tour_id: tour.id), method: :post, class: "A_P1" %> |</td>
+    <td><%= link_to 'Редактировать', edit_tour_path(tour), class: "A_P1" %></td>
+
+  </div>
+</div>
+</div>
+
+
+<% end %>

@@ -1,26 +1,45 @@
 .A_Button {
-  height: 37px;
-  line-height: 37px;
-  padding: 0 20px;
-  // background: #FFDF4E;
-  color: #4D4D4D;
+  // height: 37px;
+  // line-height: 37px;
+  // padding: 0 20px;
+  // // background: #FFDF4E;
+  // color: #4D4D4D;
+  // text-align: center;
+  // display: inline-block;
+  // min-width: 100px;
+  // text-decoration: none;
+  // border-radius: 5px;
+  //
+  // // --------------------
+  //
+  // border: 1px solid #4D4D4D;
+  // border-radius: 4px;
+  // min-width: 80px;
+  // display: inline-block;
+  // padding: 0 20px;
+  //
+  // &:hover{
+  //   border: 1px solid #FFDF4E;
+  //   background: #FFDF4E;
+  //   color: #4D4D4D;
+  // }
+
+  width: 150px;
+  background-color: #6900AA;
+  border-color: #6900AA;
+  color: white;
+  padding: 14px 20px;
+  // margin: 8px 0 0 400px;
+  border: none;
+  border-radius: 64px;
+  cursor: pointer;
   text-align: center;
-  display: inline-block;
-  min-width: 100px;
-  text-decoration: none;
-  border-radius: 5px;
 
-  // --------------------
+  a {
+    color: white;
+    font-family: "Manrope-Regular", sans-serif;
+    font-size: 14px;
 
-  border: 1px solid #4D4D4D;
-  border-radius: 4px;
-  min-width: 80px;
-  display: inline-block;
-  padding: 0 20px;
 
-  &:hover{
-    border: 1px solid #FFDF4E;
-    background: #FFDF4E;
-    color: #4D4D4D;
   }
 }

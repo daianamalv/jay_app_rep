@@ -5,6 +5,8 @@ class ToursController < ApplicationController
   # GET /tours.json
   def index
     @tours = Tour.all
+    @cities = City.all
+    @places = Place.all
   end
 
   # GET /tours/1
@@ -56,6 +58,11 @@ class ToursController < ApplicationController
     redirect_to tour_path(params[:tour_id]), notice: 'Added to favourites'
   end
 
+  def remove_from_favourite
+    Favourite.destroy(guide_id: 1, tour_id: params[:tour_id])
+    redirect_to tour_path(params[:tour_id]), notice: 'Removed from favourites'
+  end
+
   # DELETE /tours/1
   # DELETE /tours/1.json
   def destroy
@@ -74,6 +81,6 @@ class ToursController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tour_params
-      params.require(:tour).permit(:title, :description, :avatar_link, :city_id, :guide_id, :image)
+      params.require(:tour).permit(:title, :description, :avatar_link, :city_id, :guide_id, :image, :cover)
     end
 end

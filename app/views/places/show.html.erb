@@ -1,25 +1,35 @@
 <p id="notice"><%= notice %></p>
+
 <div class="P_Tour">
+
+  <% if @place.cover.present? %>
+    <p>
+      <%= image_tag @place.cover.url %>
+    </p>
+  <% end %>
+
+  <p>
+    <%= link_to @place.tour.title, tour_path(@place.tour) %>
+  </p>
+
   <div class="A_H2">
-     <%= @place.title %>
+    <%= @place.title %>
   </div>
 
+  <%= link_to 'Редактировать', edit_place_path(@place) %>
 
-<div>
-  <%= image_tag(@place.image, style:'width:200px; height:200px') if @place.image.attached? %>
-</div>
+  <div class="A_P1">
+    <%= @place.description %>
+  </div>
 
-<div class="A_P1">
-
-
-  <%= @place.description %>
-</div>
-
-<p>
-  <strong>Маршрут:</strong>
-  <%= link_to @place.tour.title, tour_path(@place.tour) %>
-</p>
-
-<td><%= link_to 'Редактировать', edit_place_path(@place) %> |</td>
-<td><%= link_to 'Удалить', @place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <p>
+    <div class="M_Photos">
+      <% @place.place_images.each do |place_image| %>
+        <% if place_image.image.present? %>
+        <p>
+          <%= image_tag place_image.image.list.url %>
+        </p>
+        <% end %>
+    <% end %>
+    </div>
 </div>

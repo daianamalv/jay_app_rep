@@ -12,31 +12,57 @@
   <body>
 
     <menu class="O_Menubar">
+
       <div class="M_ToMain">
+        <%= link_to tours_path do %>
+          <div class="Q_Logo"></div>
+        <% end %>
+        <%= link_to 'Jay', tours_path, class: "A_Link"%>
+      </div>
 
-
-      <%= link_to tours_path do %>
-<div class="Q_Logo"></div>
-<% end %>
-<%= link_to 'Jay', tours_path, class: "A_Link"%>
-</div>
-
-
-<div class="M_Menu">
-
-
-<%= link_to 'Весь мир', cities_path %>
+      <div class="M_Menu">
+        <%= link_to 'Весь мир', cities_path %>
         <%= link_to 'Исследуй', places_path %>
         <%= link_to 'Создать маршрут', new_tour_path%>
+      </div>
+      <div class="M_DropDown">
+        <button onclick="myFunction()" class="dropbtn">Профиль</button>
+        <div id="myDropdown" class="dropdown-content">
+          <li><%= link_to 'Созданные маршруты', cities_path %></li>
+          <li class="A_Button"><%= link_to 'Создать маршрут', new_tour_path%></li>
+          <li><%= link_to 'Сохраненные', favourites_path %></li>
+          <li class="Out"><%= link_to 'Выход', new_tour_path%></li>
         </div>
-        <%= link_to 'Профиль', guides_path%>
+      </div>
 
 
     </menu>
 
-        <%= yield :breadcrumbs %>
+
+<script>
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
 
 
+    <%= yield :breadcrumbs %>
     <%= yield %>
+
   </body>
-</html>
+  </html>

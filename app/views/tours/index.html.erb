@@ -2,47 +2,100 @@
 
 <div class="P_MainTours">
 
+  <h1 class="A_H1">Топ городов</h1>
 
-<h1 class="A_H1">Топ маршруты по миру</h1>
+  <th colspan="3"></th>
 
-<th colspan="3"></th>
-<div class="O_Tours">
-
-
-
-    <% @tours.each do |tour| %>
+    <div class="A_CityList">
+      <% @cities.each do |city| %>
         <div class="Please">
-    <%= link_to tour do%>
 
-        <div class="M_TourCard">
-          <div class="">
-              <%= image_tag(tour.image, style:'width:500px; height:300px;') if tour.image.attached?%>
-          </div>
-          <div class="">
-            <h2 class="A_H2"><%= tour.title %></h2>
-          </div>
-          <div class="">
-            <h2 class="A_P1"><%= tour.description %></h2>
-          </div>
-          <div class="">
-            <td><%= link_to 'Нравится', tours_add_to_favourite_path(tour_id: tour.id), method: :post, class: "A_P1" %> |</td>
-            <td><%= link_to 'Редактировать', edit_tour_path(tour), class: "A_P1" %></td>
+         <div class="M_TourCard">
 
+             <%= link_to city do %>
+
+          <% if city.cover.present? %>
+            <p>
+              <%= image_tag city.cover.card.url%>
+            </p>
+          <% end %>
+
+          <div class="">
+            <h2 class="A_H2"><%= city.name %></h2>
           </div>
+          <% end %>
         </div>
       </div>
-
-
-        <% end %>
-        <% end %>
-
-
-
-
-
-
-<br>
-
-
+  <% end %>
 </div>
-</div>
+
+
+
+  <h1 class="A_H1">Топ маршруты по миру</h1>
+
+  <div class="O_Tours">
+
+    <% @tours.each do |tour| %>
+
+      <div class="Please">
+
+
+          <div class="M_TourCard">
+            <%= link_to tour do%>
+
+            <% if tour.cover.present? %>
+              <div class="A_Image">
+                <%= image_tag tour.cover.card.url%>
+                </div>
+            <% end %>
+
+            <div class="Save">
+              <% if tour.favourites.where(guide_id: current_guide.id).any? %>
+              <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+                  <div class="Q_SaveOn"></div>
+                <% end %>
+
+              <% else %>
+
+                <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+                  <div class="Q_SaveOff"></div>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="">
+              <h2 class="A_H2"><%= tour.title %></h2>
+            </div>
+
+            <div class="">
+              <h2 class="A_P1"><%= tour.description %></h2>
+            </div>
+
+            <% end %>
+          </div>
+        </div>
+
+    <% end %>
+    </div>
+
+    <div class="O_Advert">
+      <div class="M_Advert">
+        <div class="Please">
+
+          <h3 class="A_H3">Владеешь уникальной информацией о своем городе?</h3>
+
+          <div class="A_P1">
+            <p>Составь свои маршруты, стань подтвержденным гидом Jay и монетизируй свои знания!</p>
+          </div>
+
+          <div class="A_Button">
+            <%= link_to 'Создать маршрут', new_tour_path%>
+          </div>
+
+        </div>
+
+        <div class="Q_AdPhoto"></div>
+
+      </div>
+    </div>
+  </div>

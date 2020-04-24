@@ -4,5 +4,6 @@ class Tour < ApplicationRecord
   belongs_to :guide, optional: true
   has_one_attached :image
   has_many :favourites
-  mount_uploader :avatar_link, TourCoverUploader
+  has_many :favourite_guides, through: :favourites
+  mount_uploader :cover, TourCoverUploader
 end

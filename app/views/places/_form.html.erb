@@ -1,4 +1,6 @@
 <div class="P_Tour">
+  <div class="O_Form">
+
 <%= form_with(model: place, local: true) do |form| %>
   <% if place.errors.any? %>
     <div id="error_explanation">
@@ -23,8 +25,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :image, 'Выберите фотографию' %>
-    <%= form.file_field :image %>
+    <%= form.label :cover, 'Выберите фотографию' %>
+    <%= form.file_field :cover %>
   </div>
 
   <div class="field">
@@ -47,8 +49,17 @@
     <%= form.collection_select :guide_id, Guide.all, :id, :name, prompt: true %>
   </div>
 
+  <div class="field">
+    <td><%= link_to 'New Place Image', new_place_image_path(@place) %></td>
+  </div>
+
+  <div class="field">
+    <td><%= link_to 'Удалить', @place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>
 </div>
