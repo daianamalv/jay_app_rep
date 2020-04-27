@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :abouts
+  resources :users
   resources :place_images
   devise_for :guides
   devise_for :models
@@ -9,7 +11,6 @@ Rails.application.routes.draw do
     resources :places
   end
 
-  resources :users
   resources :points
   resources :guides
   resources :places

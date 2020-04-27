@@ -1,25 +1,29 @@
 class GuidesController < ApplicationController
-  load_and_authorize_resource
+  # load_and_authorize_resource
   before_action :set_guide, only: [:show, :edit, :update, :destroy]
 
   # GET /guides
   # GET /guides.json
   def index
     @guides = Guide.all
+    @user = User.first
   end
 
   # GET /guides/1
   # GET /guides/1.json
   def show
+    @user = User.first
   end
 
   # GET /guides/new
   def new
     @guide = Guide.new
+    @user = User.first
   end
 
   # GET /guides/1/edit
   def edit
+    @user = User.first
   end
 
   # POST /guides
@@ -70,6 +74,6 @@ class GuidesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guide_params
-      params.require(:guide).permit(:name, :description, :avatar_link, :contact_number, :avatar)
+      params.require(:guide).permit(:name, :description, :contact_number, :avatar)
     end
 end

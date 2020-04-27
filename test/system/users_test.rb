@@ -14,7 +14,7 @@ class UsersTest < ApplicationSystemTestCase
     visit users_url
     click_on "New User"
 
-    fill_in "Avatar link", with: @user.avatar_link
+    fill_in "Description", with: @user.description
     fill_in "Name", with: @user.name
     click_on "Create User"
 
@@ -26,7 +26,7 @@ class UsersTest < ApplicationSystemTestCase
     visit users_url
     click_on "Edit", match: :first
 
-    fill_in "Avatar link", with: @user.avatar_link
+    fill_in "Description", with: @user.description
     fill_in "Name", with: @user.name
     click_on "Update User"
 

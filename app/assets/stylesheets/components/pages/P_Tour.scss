@@ -1,11 +1,17 @@
 .P_Tour {
-  margin-left: 65px;
+  margin-left: 79px;
+  margin-top: 56px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   font-family: "Manrope-SemiBold", sans-serif;
+  min-height: 100vh;
 
-  .A_H2, .A_H1 {
+  .M_Header {
+    width: 94%;
+  }
+
+  .A_H1 {
     margin-top: 5px;
   }
 
@@ -13,8 +19,29 @@
     margin-bottom: 30px;
   }
 
-  a {
-    font-family: "Manrope-SemiBold", sans-serif;
-    color: #6900AA;
+  .Info {
+    display: flex;
+  }
+
+  .A_P1 {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .Place {
+    display: flex;
+  }
+
+  .GuideTours {
+    margin-top: 50px;
+
+    .O_Tours {
+      margin-top: 50px;
+    }
+
+    .A_H2 {
+      // margin-bottom: 45px;
+    }
+
   }
 }

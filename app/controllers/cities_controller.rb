@@ -5,20 +5,24 @@ class CitiesController < ApplicationController
   # GET /cities.json
   def index
     @cities = City.all
+    @user = User.first
   end
 
   # GET /cities/1
   # GET /cities/1.json
   def show
+    @user = User.first
   end
 
   # GET /cities/new
   def new
     @city = City.new
+    @user = User.first
   end
 
   # GET /cities/1/edit
   def edit
+    @user = User.first
   end
 
   # POST /cities

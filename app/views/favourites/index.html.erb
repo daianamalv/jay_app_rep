@@ -6,47 +6,54 @@
 
   <h1 class="A_H1">Сохраненные</h1>
 
+  <%# @favourites.each do |favourite| %>
+  <%#= link_to favourite.tour.title, "tours/#{favourite.tour.id}"  %>
+  <%#= link_to 'Delete', favourite, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%# end %>
+
   <div class="O_Tours">
 
-    <% current_guide.favourite_tours.each do |tour| %>
+    <% @favourites.each do |favourite| %>
 
       <div class="Please">
 
-        <%= link_to tour do%>
+        <%= link_to favourite do%>
           <div class="M_TourCard">
 
-            <% if tour.cover.present? %>
-              <p>
-                <%= image_tag tour.cover.card.url%>
-              </p>
+            <% if favourite.tour.cover.present? %>
+              <div class="Q_Image">
+                <%= image_tag favourite.tour.cover.card.url, class: "Q_Image"%>
+              </div>
             <% end %>
 
             <div class="">
-              <h2 class="A_H2"><%= tour.title %></h2>
+              <h2 class="A_H2"><%= favourite.tour.title %></h2>
             </div>
 
             <div class="">
-              <h2 class="A_P1"><%= tour.description %></h2>
+              <h2 class="A_P1"><%= favourite.tour.description %></h2>
             </div>
 
-            <div class="">
+            <div class="Save">
 
-              <% if tour.favourites.where(guide_id: current_guide.id).any? %>
-                <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+              <% if favourite.tour.favourites.where(user_id: 1).any? %>
+                <%= link_to tours_add_to_favourite_path(tour_id: favourite.tour.id), method: :post do %>
                   <div class="Q_SaveOn"></div>
                 <% end %>
 
               <% else %>
-                <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+                <%= link_to tours_add_to_favourite_path(tour_id: favourite.tour.id), method: :post do %>
                   <div class="Q_SaveOff"></div>
                 <% end %>
               <% end %>
 
-            </div>
 
+            </div>
           </div>
         </div>
     <% end %>
     <% end %>
     </div>
   </div>
+
+  <%= render 'application/footer' %>

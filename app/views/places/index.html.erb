@@ -4,19 +4,32 @@
     <h1>Лучшие места</h1>
   </div>
 
-  <th colspan="3"></th>
+  <div class="O_Places">
 
-  <tbody>
-    <% @places.each do |place| %>
-      <tr>
-        <td><%= link_to "#{place.title}", place %></td>
-        <td><%= link_to 'Ред.', edit_place_path(place) %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    <div class="O_CityList">
+      <% @places.each do |place| %>
+      <div class="Please">
 
+        <div class="M_TourCard">
 
-<br>
+          <%= link_to place do %>
 
+          <% if place.cover.present? %>
+
+          <div class="Q_Image">
+            <%= image_tag place.cover.card.url, class: "Q_Image"%>
+          </div>
+          <% end %>
+
+          <div class="">
+            <h2 class="A_H2"><%= place.title %></h2>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 
 </div>
+<%= render 'application/footer' %>

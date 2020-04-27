@@ -7,20 +7,24 @@ class ToursController < ApplicationController
     @tours = Tour.all
     @cities = City.all
     @places = Place.all
+    @user = User.first
   end
 
   # GET /tours/1
   # GET /tours/1.json
   def show
+    @user = User.first
   end
 
   # GET /tours/new
   def new
     @tour = Tour.new
+    @user = User.first
   end
 
   # GET /tours/1/edit
   def edit
+    @user = User.first
   end
 
   # POST /tours
@@ -54,12 +58,13 @@ class ToursController < ApplicationController
   end
 
   def add_to_favourite
-    Favourite.create(guide_id: 1, tour_id: params[:tour_id])
+    Favourite.create(user_id: 1, tour_id: params[:tour_id])
     redirect_to tour_path(params[:tour_id]), notice: 'Added to favourites'
   end
 
+
   def remove_from_favourite
-    Favourite.destroy(guide_id: 1, tour_id: params[:tour_id])
+    Favourite.destroy(user_id: 1, tour_id: params[:tour_id])
     redirect_to tour_path(params[:tour_id]), notice: 'Removed from favourites'
   end
 
@@ -81,6 +86,6 @@ class ToursController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tour_params
-      params.require(:tour).permit(:title, :description, :avatar_link, :city_id, :guide_id, :image, :cover)
+      params.require(:tour).permit(:title, :description, :avatar_link, :city_id, :user_id, :image, :cover)
     end
 end

@@ -1,0 +1,33 @@
+.O_Guide {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 140px;
+
+
+  .M_TextInfo {
+    margin-left: 32px;
+
+    .A_P2 {
+      margin-bottom: 0;
+      margin-top: 10px;
+      width: 412px;
+
+    }
+
+    .A_H4 {
+      margin-top: 10px;
+
+    }
+
+    .A_H2 {
+      margin-top: 10px;
+
+    }
+  }
+
+  .Ava {
+    margin-top: 10px;
+  }
+
+}

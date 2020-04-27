@@ -1,0 +1,53 @@
+<div class="M_Header">
+  <h1 class="A_H1">Топ маршрутов по миру</h1>
+  <h4 class="A_H4">Смотреть все</h4>
+</div>
+
+  <div class="O_Tours">
+
+    <% @tours.each do |tour| %>
+
+      <div class="Please">
+
+
+          <div class="M_TourCard">
+            <%= link_to tour do%>
+
+            <% if tour.cover.present? %>
+              <div class="A_Image">
+                <%= image_tag tour.cover.card.url, class: "Q_Image"%>
+                </div>
+            <% end %>
+
+            <div class="Save">
+
+              <% if tour.favourites.where(user_id: 1).any? %>
+                <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+                  <div class="Q_SaveOn"></div>
+                <% end %>
+
+              <% else %>
+                <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+                  <div class="Q_SaveOff"></div>
+                <% end %>
+              <% end %>
+
+
+            </div>
+
+
+
+            <div class="">
+              <h2 class="A_H2"><%= tour.title %></h2>
+            </div>
+
+            <div class="">
+              <h2 class="A_P1"><%= tour.description %></h2>
+            </div>
+
+            <% end %>
+          </div>
+        </div>
+
+    <% end %>
+    </div>

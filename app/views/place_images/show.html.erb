@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Place:</strong>
-  <%= @place_image.place_id %>
-</p>
+<div class="P_Tour">
 
-<p>
-  <strong>Image:</strong>
-  <%= @place_image.image %>
-</p>
+  <p class="A_H1">
+    <%= @place_image.place.title %>
+  </p>
 
-<%= link_to 'Edit', edit_place_image_path(@place_image) %> |
-<%= link_to 'Back', place_images_path %>
+  <div class="M_Photos">
+    <%# @place_images.each do |place_image| %>
+      <%#if place_image.image.present? %>
+        <div class="Q_Image">
+          <%#= image_tag place_image.image.list.url, class: "Q_Image" %>
+        </div>
+      <%# end %>
+  <%# end %>
+  </div>
+
+  <%= link_to 'Вернуться к редактированию', edit_place_path(@place_image.place_id) %>
+  <%#= link_to 'Back', place_images_path %>
+
+
+</div>

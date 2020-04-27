@@ -5,8 +5,8 @@ class Guide < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :places
   has_many :tours
-  has_many :favourites
-  has_many :favourite_tours, through: :favourites, source: 'tour'
+  # has_many :favourites
+  # has_many :favourite_tours, through: :favourites, source: 'tour'
   mount_uploader :avatar, GuideAvatarUploader
 
 end

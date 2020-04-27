@@ -33,6 +33,19 @@ class PlaceCoverUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [50, 50]
   end
 
+  version :cart do
+    process resize_to_fill: [394,200]
+  end
+
+  version :card do
+    process resize_to_fill: [304,152]
+  end
+
+  version :horizontal do
+    process resize_to_fill: [1470,152]
+  end
+
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist

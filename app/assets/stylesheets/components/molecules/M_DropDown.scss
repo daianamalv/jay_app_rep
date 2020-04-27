@@ -1,45 +1,25 @@
-// .M_DropDown {
-//   font-family: "Manrope-SemiBold", sans-serif;
-//   font-size: 14px;
-//   box-sizing: border-box;
-//   padding: 13px 13px;
-//   background: white;
-//   color: #0B004C;
-//   position: relative;
-//   display: inline-block;
-//   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-//   border-radius: 12px;
-//   margin-left: 1600px;
-//
-//   ul {
-//     margin: 5px;
-//     display: none;
-//     position: absolute;
-//   }
-//
-//   ul:hover {
-//     color: black;
-//   }
-//
-//   li {
-//     padding: 10px;
-//   }
-//
-//   .Out {
-//     font-family: "Manrope-Regular", sans-serif;
-//   }
-// }
-
 
 .M_DropDown {
-  
+
+  padding-top: 14px;
+
+
 
 .dropbtn {
     background-color: #fff;
-    padding: 16px;
+    padding: 10px 16px;
     font-size: 14px;
-    border: none;
+    border-color: #964DC3;
+    border-width: thin;
     cursor: pointer;
+    border-radius: 64px;
+    display: flex;
+    flex-direction: row;
+
+    &:hover {
+      opacity: 80%;
+    }
+
 }
 
 a {
@@ -65,9 +45,13 @@ a {
 
 }
 
+.dropdown-content {
+  padding: 0px 10px 0px;
+}
+
 .dropdown-content li {
     color: black;
-    padding: 10px;
+    margin: 18px 15px 10px;
     text-decoration: none;
     display: block;
 }
@@ -75,6 +59,11 @@ a {
 /* Change color of dropdown links on hover */
 .dropdown-content li:hover {
   color: #ddd
+}
+
+.A_Button:hover {
+opacity: 80%;
+color: #fff;
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
@@ -85,4 +74,9 @@ a {
 .Out {
     font-family: "Manrope-Regular", sans-serif;
   }
+
+ .A_Button {
+   padding: 8px 20px;
+
+ }
 }

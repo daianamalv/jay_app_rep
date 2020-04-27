@@ -5,20 +5,24 @@ class PointsController < ApplicationController
   # GET /points.json
   def index
     @points = Point.all
+    @user = User.first
   end
 
   # GET /points/1
   # GET /points/1.json
   def show
+    @user = User.first
   end
 
   # GET /points/new
   def new
     @point = Point.new
+    @user = User.first
   end
 
   # GET /points/1/edit
   def edit
+    @user = User.first
   end
 
   # POST /points

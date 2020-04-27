@@ -29,12 +29,20 @@ class CityCoverUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :horizontal do
+  version :horizonta do
     process resize_to_fill: [1838,200]
   end
 
-  version :card do
+  version :horizontal do
+    process resize_to_fill: [1470,200]
+  end
+
+  version :cart do
     process resize_to_fill: [394,200]
+  end
+
+  version :card do
+    process resize_to_fill: [304,152]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

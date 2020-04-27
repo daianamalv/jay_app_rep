@@ -1,27 +1,77 @@
+<div class="P_MainTours">
+
 <div class="P_Tour">
+
 
 
 <p id="notice"><%= notice %></p>
 
-<div class="A_H1">
-  <%= @guide.name %>
-</div>
-
-<p>
-  <strong>О себе:</strong>
-  <%= @guide.description %>
-</p>
-
-<p>
-  <strong>Маршруты:</strong>
-</p>
-<% @guide.tours.each do |tour| %>
-<p>
-    <td><%= link_to tour.title, tour_path(tour) %></td>
-</p>
+<% if @guide.avatar.present? %>
+  <div class="Q_Image">
+    <%= image_tag @guide.avatar.ava.url, class: "Q_Image"%>
+  </div>
 <% end %>
 
-<%= link_to 'Редактировать', edit_guide_path(@guide) %> |
-<%= link_to 'Назад', guides_path %>
+<div class="A_H1">
+  <%= @guide.name %>
+  <%= link_to edit_guide_path(@guide) do %>
+    <div class="Q_Edit"></div>
+  <% end %>
+</div>
+
+<%#= link_to 'Редактировать', edit_guide_path(@guide) %>
+
+<div class="A_P1">
+  <%= @guide.description %>
+</div>
+
+<div class="A_H2">
+  <strong>Маршруты гида</strong>
+</div>
+
+<div class="O_Tours">
+
+  <% @guide.tours.each do |tour| %>
+    <div class="Please">
+
+        <div class="M_TourCard">
+          <%= link_to tour do%>
+
+          <% if tour.cover.present? %>
+            <div class="A_Image">
+              <%= image_tag tour.cover.card.url, class: "Q_Image"%>
+              </div>
+          <% end %>
+
+          <div class="Save">
+
+            <% if tour.favourites.where(guide_id: 1).any? %>
+              <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+                <div class="Q_SaveOn"></div>
+              <% end %>
+
+            <% else %>
+              <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+                <div class="Q_SaveOff"></div>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="">
+            <h2 class="A_H2"><%= tour.title %></h2>
+          </div>
+
+          <div class="">
+            <h2 class="A_P1"><%= tour.description %></h2>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 </div>
+</div>
+
+<%= render 'application/footer' %>

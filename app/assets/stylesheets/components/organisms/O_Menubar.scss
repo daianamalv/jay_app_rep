@@ -2,11 +2,17 @@
   font-family: "Manrope-SemiBold", sans-serif;
   font-size: 14px;
   box-sizing: border-box;
-  padding: 13px 65px;
-  // width: 100vw;
+  padding: 13px 79px;
   background: white;
-  color: #0B004C;
-  // position: fixed;
+  color: #000;
+
+  a {
+    // padding-top: 27px;
+  }
+
+  a:hover{
+    opacity: 80%;
+  }
 
   left: 0%;
   right: 0%;
@@ -24,35 +30,17 @@
   .A_Link {
     color: #6900AA;
     font-size: 24px;
+
     &:hover{
       opacity: 70%;
-
-    }
-
-
-
-
-  }
-
-  a {
-    // font-family: "Circe-Regular";
-    line-height: 62px;
-    color: #000000;
-    text-decoration: none;
-
-    &:hover{
-          color: #5C4FAB;
     }
   }
-  //
-  // .Q_AvatarIcon {
-  //   margin-top: 7px;
-  //   margin-left: 25px;
-  // }
-  //
-  //
-  // .M_ServiceCard {
-  //   margin-left: 15px;
-  // }
 
+  .Q_Logo {
+
+    a {
+    padding: 0;
+    }
+
+  }
 }

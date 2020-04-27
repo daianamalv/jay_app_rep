@@ -5,20 +5,24 @@ class FavouritesController < ApplicationController
   # GET /favourites.json
   def index
     @favourites = Favourite.all
+    @user = User.first
   end
 
   # GET /favourites/1
   # GET /favourites/1.json
   def show
+    @user = User.first
   end
 
   # GET /favourites/new
   def new
     @favourite = Favourite.new
+    @user = User.first
   end
 
   # GET /favourites/1/edit
   def edit
+    @user = User.first
   end
 
   # POST /favourites
@@ -69,6 +73,6 @@ class FavouritesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def favourite_params
-      params.require(:favourite).permit(:guide_id)
+      params.require(:favourite).permit(:user_id)
     end
 end

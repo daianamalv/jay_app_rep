@@ -1,0 +1,60 @@
+<div class="P_Tour">
+<div class="O_Form">
+
+
+  <div class="A_H1">
+    <p>Редактирование маршрута</p>
+    <%= link_to @tour, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить маршрут? Это действие нельзя будет отменить' }, style: "A_H4" do %>
+    <div class="Q_Delete"></div>
+    <% end %>
+  </div>
+
+<%= form_with(model: tour, local: true) do |form| %>
+  <% if tour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
+
+      <ul>
+        <% tour.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :city_id, 'Выберите город', class: "" %>
+    <%= form.collection_select :city_id, City.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title, 'Впишите название'%>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cover, 'Загрузите обложку' %>
+    <%= form.file_field :cover, class: "file-picker" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, 'Добавьте описание' %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id, 'Гид' %>
+    <%= form.collection_select :user_id, User.all, :id, :name, prompt: true %>
+  </div>
+
+  <!-- <div class="A_H4">
+    <%#= link_to 'Удалить маршрут', @tour, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить маршрут? Это действие нельзя будет отменить' }, style: "A_H4" %>
+  </div> -->
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>
+</div>
+</div>

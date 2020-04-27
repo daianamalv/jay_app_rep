@@ -1,0 +1,17 @@
+.M_Footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 1700px;
+  padding: 40px 0 0 0;
+
+  a {
+    line-height: normal;
+    padding: 0 20px;
+}
+
+p {
+  line-height: normal;
+  padding: 0 20px 0 0;
+}
+}

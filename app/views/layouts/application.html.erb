@@ -16,7 +16,7 @@
       <div class="M_ToMain">
         <%= link_to tours_path do %>
           <div class="Q_Logo"></div>
-        <% end %>
+        <%end %>
         <%= link_to 'Jay', tours_path, class: "A_Link"%>
       </div>
 
@@ -26,12 +26,16 @@
         <%= link_to 'Создать маршрут', new_tour_path%>
       </div>
       <div class="M_DropDown">
-        <button onclick="myFunction()" class="dropbtn">Профиль</button>
+        <button onclick="myFunction()" class="dropbtn">
+          <%= image_tag @user.cover.smallava.url, class: "Q_AvatarImage"%>
+          <div class="Q_Name"><%= @user.name %></div>
+        </button>
         <div id="myDropdown" class="dropdown-content">
           <li><%= link_to 'Созданные маршруты', cities_path %></li>
           <li class="A_Button"><%= link_to 'Создать маршрут', new_tour_path%></li>
           <li><%= link_to 'Сохраненные', favourites_path %></li>
-          <li class="Out"><%= link_to 'Выход', new_tour_path%></li>
+          <li class="Out"><%= link_to 'Профиль', user_path(@user)%></li>
+          <li class="Out"><%= link_to 'Выход'%></li>
         </div>
       </div>
 

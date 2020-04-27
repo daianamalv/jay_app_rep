@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_074559) do
+ActiveRecord::Schema.define(version: 2020_04_27_032311) do
+
+  create_table "abouts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_074559) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "guide_id"
+    t.integer "user_id"
   end
 
   create_table "guides", force: :cascade do |t|
@@ -93,6 +99,14 @@ ActiveRecord::Schema.define(version: 2020_04_24_074559) do
 
 # Could not dump table "tours" because of following StandardError
 #   Unknown type 'file' for column 'image'
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "cover"
+  end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
 end

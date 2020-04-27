@@ -1,6 +1,14 @@
 .M_Photos {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+  // width: 100%;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // grid-template-rows: auto;
+
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+
+  .Q_Image {
+    margin-bottom: 20px;
+  }
 }

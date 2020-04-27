@@ -33,12 +33,20 @@ class TourCoverUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
 
- version :horizontal do
+ version :horizonta do
    process resize_to_fill: [1838,430]
  end
 
- version :card do
+ version :horizontal do
+   process resize_to_fill: [1470,424]
+ end
+
+ version :cart do
    process resize_to_fill: [450,250]
+ end
+
+ version :card do
+   process resize_to_fill: [416,248]
  end
 
   # Add a white list of extensions which are allowed to be uploaded.

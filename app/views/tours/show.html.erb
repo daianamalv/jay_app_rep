@@ -1,45 +1,94 @@
 <p id="notice"><%= notice %></p>
 
 <% if @tour.cover.present? %>
-  <p>
-    <%= image_tag @tour.cover.horizontal.url %>
-  </p>
+  <div class="Q_CoverImage">
+    <%= image_tag @tour.cover.horizontal.url, class: "Q_CoverImage" %>
+  </div>
 <% end %>
 
 <div class="P_Tour">
 
-  <div class="A_P1">
-    <%= link_to @tour.city.name, city_path(@tour.city) %>
-  </div>
+  <div class="Info">
 
-  <div class="A_H1">
-    <%= @tour.title %>
-  </div>
+    <div class="O_TourInfo">
 
-  <%= link_to 'Нравится', tours_add_to_favourite_path(tour_id: @tour.id), method: :post %>
+      <div class="A_P1">
+        <%= link_to @tour.city.name, city_path(@tour.city) %>
+      </div>
 
-  <div class="A_P1">
-    <%= @tour.description %>
-  </div>
+      <div class="A_H1">
+        <%= @tour.title %>
+        <%= link_to edit_tour_path(@tour) do %>
+        <div class="Q_Edit"></div>
+        <% end %>
+      </div>
 
-  <div class="A_P1">
-    <strong>Гид:</strong>
-    <%= link_to @tour.guide.name, guide_path(@tour.guide) %>
-  </div>
+      <%#= link_to 'Нравится', tours_add_to_favourite_path(tour_id: @tour.id), method: :post %>
+      <%# end %>
 
-  <div class="A_H3">
-    <h3>Места этого маршрута:</h3>
-  </div>
+      <div class="A_P1">
+        <%= @tour.description %>
+      </div>
 
-  <% @tour.places.each do |place| %>
-    <div class="A_P1">
-        <td><%= link_to place.title, tour_place_path(@tour, place) %></td>
     </div>
-  <% end %>
 
-  <%= link_to 'Редактировать', edit_tour_path(@tour) %> |
-  <%= link_to 'Удалить', @tour, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <%= link_to 'Назад', tours_path %>
+    <div class="O_Guide">
 
+      <div class="Ava">
+        <%= image_tag @tour.user.cover.ava_tour.url, class: "Q_AvatarImage"%>
+      </div>
+
+      <div class="M_TextInfo">
+
+        <div class="A_H4">
+          <p>гид</p>
+        </div>
+
+        <div class="A_H2">
+          <%= link_to @tour.user.name, user_path(@tour.user) %>
+        </div>
+
+        <div class="A_P2">
+          <%= @tour.user.description %>
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
+
+  <div class="A_H2">
+    <h2>Места маршрута</h2>
+  </div>
+
+  <div class="O_Places">
+
+    <div class="O_CityList">
+      <% @tour.places.each do |place| %>
+      <div class="Please">
+
+        <div class="M_TourCard">
+
+          <%= link_to place do %>
+
+          <% if place.cover.present? %>
+
+          <div class="Q_Image">
+            <%= image_tag place.cover.card.url, class: "Q_Image"%>
+          </div>
+          <% end %>
+
+          <div class="">
+            <h2 class="A_H2"><%= place.title %></h2>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>
+<%= render 'application/footer' %>

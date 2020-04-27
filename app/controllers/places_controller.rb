@@ -5,20 +5,24 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     @places = Place.all
+    @user = User.first
   end
 
   # GET /places/1
   # GET /places/1.json
   def show
+    @user = User.first
   end
 
   # GET /places/new
   def new
     @place = Place.new
+    @user = User.first
   end
 
   # GET /places/1/edit
   def edit
+    @user = User.first
   end
 
   # POST /places
@@ -69,6 +73,6 @@ class PlacesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def place_params
-      params.require(:place).permit(:title, :description, :tour_id, :point_id, :guide_id, :image)
+      params.require(:place).permit(:title, :description, :tour_id, :point_id, :guide_id, :image, :cover)
     end
 end

@@ -1,0 +1,23 @@
+
+<div class="O_CityList">
+  <% @cities.each do |city| %>
+    <div class="Please">
+
+     <div class="M_TourCard">
+
+         <%= link_to city do %>
+
+      <% if city.cover.present? %>
+        <div class="Q_Image">
+          <%= image_tag city.cover.card.url, class: "Q_Image"%>
+        </div>
+      <% end %>
+
+      <div class="">
+        <h2 class="A_H2"><%= city.name %></h2>
+      </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+</div>

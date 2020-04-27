@@ -1,0 +1,37 @@
+<div class="P_Tour">
+  <div class="O_Form">
+
+    <%= form_with(model: user, local: true) do |form| %>
+      <% if user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :name, 'Введите имя' %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :description, 'Расскажите о себе' %>
+        <%= form.text_area :description %>
+      </div>
+
+      <div class="field">
+        <%= form.label :cover, 'Загрузите фотографию' %>
+        <%= form.file_field :cover, class: "file-picker" %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>

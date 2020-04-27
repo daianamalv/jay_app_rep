@@ -1,0 +1,86 @@
+<div class="P_Tour">
+
+  <p id="notice"><%= notice %></p>
+
+  <div class="O_Info">
+
+    <% if @user.cover.present? %>
+    <div class="Q_Image">
+      <%= image_tag @user.cover.ava.url, class: "Q_AvatarImage"%>
+      <div class="A_H4">
+        <%= link_to 'Обновить фото', edit_user_path(@user)%>
+      </div>
+    </div>
+
+    <% end %>
+
+    <div class="M_TextInfo">
+
+      <div class="A_H1">
+        <%= @user.name %>
+        <%= link_to edit_user_path(@user) do %>
+        <div class="Q_Edit"></div>
+        <% end %>
+      </div>
+
+      <div class="A_P1">
+        <%= @user.description %>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="GuideTours">
+
+  <div class="A_H2">
+    <strong>Маршруты гида</strong>
+  </div>
+
+  <div class="O_Tours">
+
+    <% @user.tours.each do |tour| %>
+    <div class="Please">
+
+      <div class="M_TourCard">
+        <%= link_to tour do%>
+
+        <% if tour.cover.present? %>
+        <div class="A_Image">
+          <%= image_tag tour.cover.card.url, class: "Q_Image"%>
+        </div>
+        <% end %>
+
+        <div class="Save">
+
+          <% if tour.favourites.where(user_id: 1).any? %>
+          <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+          <div class="Q_SaveOn"></div>
+          <% end %>
+
+          <% else %>
+          <%= link_to tours_add_to_favourite_path(tour_id: tour.id), method: :post do %>
+          <div class="Q_SaveOff"></div>
+          <% end %>
+          <% end %>
+        </div>
+
+        <div class="">
+          <h2 class="A_H2"><%= tour.title %></h2>
+        </div>
+
+        <div class="">
+          <h2 class="A_P1"><%= tour.description %></h2>
+        </div>
+
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>
+
+</div>
+
+<%= render 'application/footer' %>
